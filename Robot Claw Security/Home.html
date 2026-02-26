@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Robot Claw Security</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+   <link rel="icon" type="image/x-icon" href="images/securityimage.jpg">
+
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+        </nav>
+
+        
+            <div class="background-vid">
+                <video autoplay muted loop playsinline preload="none" id="myVideo">
+  <source src="images/CCTV.mp4" type="video/mp4">
+</video>
+            </div>
+            <div class="intro-text">
+                <h1>Robot Claw Security</h1>
+                <p>In an unpredictable world, we provide the ultimate grip on your safety. We fuse elite-level vigilance with the sharpest modern technology to create an unbreakable shield around what matters most to you. From the quiet of your home to the bustle of your business, we don’t just watch over your space—we master it. Experience a new standard of security where rapid intelligence meets ironclad reliability, ensuring your peace of mind is never out of reach.</p>
+                </div>
+            <div class="Body">
+                    <div class="sections-container">
+                    <div class="about">
+                        <h2>About Us</h2>
+                        <div class="about-content">
+                            <div class="about-text">
+                                <p>Robot Claw Security Ltd is a professional security company dedicated to protecting people,
+property, and businesses with reliable, modern, and highly trained services. We combine skilled personnel, advanced technology, and rapid response systems to deliver safety solutions you can trust. Our team operates with integrity, discipline, and vigilance to ensure every client enjoys peace of mind at all times.
+We serve residential homes, commercial properties, construction sites, institutions, and events, offering customized security solutions tailored to each client’s needs. At Robot Claw Security Ltd, your safety is our priority — strong, dependable protection you can count on 24/7.</p>
+                            </div>
+                            <div class="about-image">
+                                <img src="images/securityimage.jpg" alt="Security image" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+              <div class="cta-container">
+                    <a class="cta-btn" href="Contact.html">&gt; Let's secure your environs</a>
+                </div>
+              <div class="vision">
+                    <h2>Our Vision</h2>
+                    <p>To provide dependable, professional, and technology-driven security services that safeguard lives,
+property, and assets. Robot Claw Security Ltd is committed to delivering vigilant protection through
+highly trained personnel, rapid response, integrity, and customer-focused solutions tailored to every
+client’s needs.</p>
+            
+                </div>
+            
+ <div class="mission">
+                    <h2>Our Mission</h2>
+                    <p>To provide dependable, professional, and technology-driven security services that safeguard lives,
+property, and assets. Robot Claw Security Ltd is committed to delivering vigilant protection through
+highly trained personnel, rapid response, integrity, and customer-focused solutions tailored to every
+client’s needs.</p>
+                </div>
+                    </div>
+            </div>
+        </div>
+        <div class="contacts">
+            <h2>Contact Us</h2>
+            <div class="customer-sections">
+                <div class="existing-customers">
+                    <h3>For Existing Customers</h3>
+                    <p>Our customer service team is more than ready to assist you with any inquiries or support needs. Reach out to us via our WhatsApp or Email below.</p>
+                    <ul>
+                        <li><strong>Phone:</strong> <a href="https://wa.me/254796833395" target="_blank" rel="noopener">+2547 123 456 789</a></li>
+                        <li><strong>Email:</strong>  <a href="mailto:info@robotclawsecurity.com" target="_blank" rel="noopener">mainajames.t@gmail.com</a></li>
+                    </ul>
+                    <div class="existing-image">
+                        <img src="images/securityimage.jpg" alt="Security image" loading="lazy">
+                    </div>
+                </div>
+                <div class="new-customers">
+                    <h3>Let's Secure Your Environment</h3>
+                    <p>If you want to be one of our valuable clients, please fill the form below.</p>
+                    <form id="newCustomerForm">
+                        <label>Name:<br>
+                            <input type="text" name="name" placeholder="Full name" required>
+                        </label><br><br>
+                        <label>Phone number:<br>
+                            <input type="tel" name="phone" placeholder="(+254) 712 345 678" required>
+                        </label><br><br>
+                        <label>Security type:<br>
+                            <select name="type" id="customerType" required>
+                                <option value="">-- select --</option>
+                                <option value="enterprise">Enterprise</option>
+                                <option value="private">Private</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </label><br><br>
+                        <div id="businessNameContainer" style="display:none;">
+                            <label>Business Name:<br>
+                                <input type="text" name="businessName" id="businessName" placeholder="Company or organization">
+                            </label><br><br>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('customerType').addEventListener('change', function() {
+                var val = this.value;
+                var businessDiv = document.getElementById('businessNameContainer');
+                var businessInput = document.getElementById('businessName');
+                if (val === 'enterprise' || val === 'other') {
+                    businessDiv.style.display = 'block';
+                    businessInput.required = true;
+                } else {
+                    businessDiv.style.display = 'none';
+                    businessInput.required = false;
+                }
+            });
+
+            document.getElementById('newCustomerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                var form = this;
+                var name = form.name.value;
+                var phone = form.phone.value;
+                var type = form.type.value;
+                var business = form.businessName ? form.businessName.value : '';
+                var subject = 'New Customer Inquiry';
+                var body = 'Name: ' + encodeURIComponent(name) + '%0D%0APhone: ' + encodeURIComponent(phone) + '%0D%0AType: ' + encodeURIComponent(type);
+                if (business) body += '%0D%0ABusiness Name: ' + encodeURIComponent(business);
+                window.location.href = 'mailto:mainajames.t@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+            });
+        </script>
+        <div class="footer">
+            <div class="social-icons">
+                <a href="https://wa.me/254796833395" target="_blank" rel="noopener">
+                    <img src="images/whatsapp.png" alt="WhatsApp" loading="lazy">
+                </a>
+                <a href="mailto:info@robotclawsecurity.com" target="_blank" rel="noopener">
+                    <img src="images/gmail.png" alt="Email" loading="lazy">
+                </a>
+                <a href="https://instagram.com/robotclawsecurity" target="_blank" rel="noopener">
+                    <img src="images/instagram.png" alt="Instagram" loading="lazy">
+                </a>
+            </div>
+        </div>
+        </div>
+        <div class="locations">
+            <h2>Our Offices</h2>
+            <p>We are located in Nairobi, Kenya, and serve clients across the country. Our headquarters is situated in the heart of Nairobi, allowing us to provide rapid response and efficient security services to our clients throughout Kenya.</p>
+            <div class="branches-container">
+                <div class="branch">
+                    <h3>Headquarters - Nairobi</h3>
+                    <p><strong>Address:</strong> 254 Mama Ngina Street, Nairobi 00100, Kenya</p>
+                    <p><strong>Phone:</strong> <a href="tel:+254796833395">+254 796 833 395</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@robotclawsecurity.com">info@robotclawsecurity.com</a></p>
+                    <p><strong>Hours:</strong> 24/7 Operations</p>
+                </div>
+                <div class="branch">
+                    <h3>Branch - Westlands</h3>
+                    <p><strong>Address:</strong> Valley Road, Westlands, Nairobi 00800, Kenya</p>
+                    <p><strong>Phone:</strong> <a href="tel:+254796833395">+254 796 833 395</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:support@robotclawsecurity.com">support@robotclawsecurity.com</a></p>
+                    <p><strong>Hours:</strong> 24/7 Operations</p>
+                </div>
+            </div>
+        </div>
+        </body>

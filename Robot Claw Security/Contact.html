@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - Robot Claw Security</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/securityimage.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="background-vid">
+        <video autoplay muted loop playsinline preload="none" id="myVideo">
+            <source src="images/CCTV.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="intro-text" id="introLayer">
+        <h1>We are happy to hear from you</h1>
+        <p>Reach out via phone, email or our contact form below—your safety is our priority.</p>
+    </div>
+
+    <main class="contact-main">
+        <section class="contact-form-section">
+            <h2>Send Us a Message</h2>
+            <form id="mainContactForm">
+                <label>Name:<br><input type="text" name="name" placeholder="Full name" required></label><br><br>
+                <label>Email:<br><input type="email" name="email" placeholder="you@example.com" required></label><br><br>
+                <label>Message:<br><textarea name="message" placeholder="How can we assist you?" rows="5" required></textarea></label><br><br>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <section class="contact-info-simple">
+            <h2>Contact Details</h2>
+            <p><strong>Phone:</strong> <a href="tel:+254796833395">+254 796 833 395</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@robotclawsecurity.com">info@robotclawsecurity.com</a></p>
+            <p><strong>Hours:</strong> 24/7 support</p>
+            <img src="images/map-placeholder.png" alt="Map" class="map-small" loading="lazy">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://wa.me/254796833395" target="_blank" rel="noopener"><img src="images/whatsapp.png" alt="WhatsApp" loading="lazy"></a>
+            <a href="mailto:info@robotclawsecurity.com" target="_blank" rel="noopener"><img src="images/gmail.png" alt="Email" loading="lazy"></a>
+            <a href="https://instagram.com/robotclawsecurity" target="_blank" rel="noopener"><img src="images/instagram.png" alt="Instagram" loading="lazy"></a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mainContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var f = this;
+            var name = f.name.value;
+            var email = f.email.value;
+            var msg = f.message.value;
+            var body = 'Name: ' + encodeURIComponent(name) + '%0D%0A';
+            body += 'Email: ' + encodeURIComponent(email) + '%0D%0A%0D%0A';
+            body += 'Message: ' + encodeURIComponent(msg);
+            window.location.href = 'mailto:info@robotclawsecurity.com?subject=Contact%20Request&body=' + body;
+        });
+
+        window.addEventListener('scroll', function() {
+            var intro = document.getElementById('introLayer');
+            var video = document.getElementById('myVideo');
+            if (window.scrollY > 200) {
+                intro.style.opacity = '0';
+                if (video) video.style.opacity = '0';
+            } else {
+                intro.style.opacity = '1';
+                if (video) video.style.opacity = '0.7';
+            }
+        });
+    </script>
+</body>
+</html>
